@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortis Plumbing Heating & Drain Services</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #0f172a;
+      background: #f8fafc;
+    }
+
+	.main-header {
+	  position: sticky;
+	  top: 0;
+	  z-index: 999;
+	  width: 100%;
+	  background: rgba(2, 6, 23, 0.88);
+	  backdrop-filter: blur(12px);
+	  border-bottom: 1px solid #1e293b;
+	}
+
+	.nav-container {
+	  max-width: 1200px;
+	  margin: auto;
+	  padding: 0 24px;
+	  height: 75px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-between;
+	}
+
+	.logo-link img {
+	  height: 65px;
+	  width: auto;
+	}
+
+	.nav-menu {
+	  display: flex;
+	  align-items: center;
+	  gap: 6px;
+	}
+
+	.nav-menu a,
+	.dropdown button {
+	  color: #cbd5e1;
+	  background: transparent;
+	  border: none;
+	  text-decoration: none;
+	  padding: 10px 16px;
+	  border-radius: 8px;
+	  font-weight: 600;
+	  cursor: pointer;
+	}
+
+	.nav-menu a:hover,
+	.dropdown button:hover {
+	  color: white;
+	  background: rgba(30, 41, 59, 0.7);
+	}
+
+	.nav-menu a.active{
+	    color:#0ea5e9;
+	    border-bottom:3px solid #0ea5e9;
+	}
+
+	.dropdown {
+	  position: relative;
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  top: 45px;
+	  background: #020617;
+	  min-width: 170px;
+	  border: 1px solid #1e293b;
+	  border-radius: 10px;
+	  padding: 8px;
+	}
+
+	.dropdown-content a {
+	  display: block;
+	}
+
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+	.nav-buttons {
+	  display: flex;
+	  align-items: center;
+	  gap: 14px;
+	}
+
+	.outline-btn,
+	.primary-btn {
+	  text-decoration: none;
+	  padding: 10px 18px;
+	  border-radius: 8px;
+	  font-weight: bold;
+	}
+
+	.outline-btn {
+	  border: 1px solid #334155;
+	  color: #cbd5e1;
+	}
+
+	.outline-btn:hover {
+	  background: #1e293b;
+	  color: white;
+	}
+
+	.primary-btn {
+	  background: #0ea5e9;
+	  color: white;
+	}
+
+	.primary-btn:hover {
+	  background: #0284c7;
+	}
+
+	@media(max-width: 850px) {
+	  .nav-menu,
+	  .nav-buttons {
+	    display: none;
+	  }
+
+	  .nav-container {
+	    justify-content: center;
+	  }
+
+	  .logo-link img {
+	    height: 60px;
+	  }
+	}
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .logo-text h2 {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .logo-text p {
+      color: #bfdbfe;
+      font-size: 13px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .call-btn {
+      background: #facc15;
+      color: #05264d !important;
+      padding: 12px 20px;
+      border-radius: 30px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      background:
+        linear-gradient(rgba(5,38,77,0.88), rgba(5,38,77,0.88)),
+        url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 70px 8%;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    .btn-yellow {
+      background: #facc15;
+      color: #05264d;
+    }
+
+    .btn-white {
+      background: white;
+      color: #05264d;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 38px;
+      color: #05264d;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #475569;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .card span {
+      font-size: 45px;
+    }
+
+    .card h3 {
+      color: #05264d;
+      margin: 15px 0;
+    }
+
+    .why {
+      background: #05264d;
+      color: white;
+    }
+
+    .why h2 {
+      color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .why-box {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+      align-items: center;
+    }
+
+    .contact-info h3 {
+      color: #05264d;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #facc15;
+      color: #05264d;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #031b36;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .floating-call {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #facc15;
+      color: #05264d;
+      padding: 15px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    @media(max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .logo-text h2 {
+        font-size: 24px;
+      }
+    }
+
+	.service-areas{
+	    padding:90px 8%;
+	    background:#f8fafc;
+	}
+
+	.section-title{
+	    text-align:center;
+	    margin-bottom:50px;
+	}
+
+	.section-title h2{
+	    font-size:42px;
+	    color:#05264d;
+	    margin-bottom:10px;
+	}
+
+	.section-title p{
+	    color:#64748b;
+	    font-size:18px;
+	}
+
+	.areas-grid{
+	    display:grid;
+	    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+	    gap:25px;
+	}
+
+	.area-card{
+	    background:white;
+	    padding:35px;
+	    border-radius:18px;
+	    box-shadow:0 15px 35px rgba(0,0,0,.08);
+	    transition:.3s;
+	    cursor:pointer;
+	    border-top:5px solid #0ea5e9;
+	}
+
+	.area-card:hover{
+	    transform:translateY(-8px);
+	    box-shadow:0 25px 50px rgba(0,0,0,.15);
+	}
+
+	.area-card h3{
+	    color:#05264d;
+	    margin-bottom:12px;
+	    font-size:24px;
+	}
+
+	.area-card p{
+	    color:#64748b;
+	}
+  </style>
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="nav-container">
+
+    <a href="#" class="logo-link">
+      <img src="logo.png" alt="Fortis Plumbing Logo">
+    </a>
+	
+<nav class="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#areas">Service Areas</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+
+    <div class="nav-buttons">
+      <a class="outline-btn" href="tel:+16041234567">📞 Call Now</a>
+      <a class="primary-btn" href="#contact">Request Service</a>
+    </div>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Professional Plumbing, Heating & Drain Services</h1>
+    <p>Fast, reliable, and affordable service for homes and businesses. We handle leaks, clogged drains, heating repairs, water heaters, and emergency plumbing.</p>
+    <a class="btn btn-yellow" href="tel:+16041234567">📞 Call Now</a>
+    <a class="btn btn-white" href="#contact">Request Free Estimate</a>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <p class="subtitle">Complete plumbing, heating, and drain solutions for residential and commercial customers.</p>
+
+  <div class="services">
+    <div class="card">
+      <span>🚰</span>
+      <h3>Plumbing Repairs</h3>
+      <p>Faucets, toilets, pipes, sinks, and general plumbing repair.</p>
+    </div>
+
+    <div class="card">
+      <span>🌀</span>
+      <h3>Drain Cleaning</h3>
+      <p>Kitchen, bathroom, shower, and main drain blockage cleaning.</p>
+    </div>
+
+    <div class="card">
+      <span>🔥</span>
+      <h3>Heating Services</h3>
+      <p>Heating system service, repair, and maintenance.</p>
+    </div>
+
+    <div class="card">
+      <span>🚿</span>
+      <h3>Water Heaters</h3>
+      <p>Hot water tank repair, installation, and replacement.</p>
+    </div>
+
+    <div class="card">
+      <span>🚨</span>
+      <h3>Emergency Service</h3>
+      <p>Quick response for urgent plumbing and drain problems.</p>
+    </div>
+
+    <div class="card">
+      <span>🏠</span>
+      <h3>Residential & Commercial</h3>
+      <p>Service for homes, offices, restaurants, and businesses.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <h2>Why Choose Fortis?</h2>
+
+  <div class="why-grid">
+    <div class="why-box">
+      <h3>24/7 Emergency Help</h3>
+      <p>Available when urgent plumbing problems happen.</p>
+    </div>
+
+    <div class="why-box">
+      <h3>Reliable Service</h3>
+      <p>Professional, honest, and clean workmanship.</p>
+    </div>
+
+    <div class="why-box">
+      <h3>Affordable Pricing</h3>
+      <p>Clear quotes with no hidden surprises.</p>
+    </div>
+
+    <div class="why-box">
+      <h3>Local Experts</h3>
+      <p>Serving Surrey, Langley, Delta, Vancouver, and nearby areas.</p>
+    </div>
+  </div>
+</section>
+<section id="areas" class="service-areas">
+
+  <div class="section-title">
+      <h2>Service Areas</h2>
+      <p>Proudly Serving Metro Vancouver & Fraser Valley</p>
+  </div>
+    <div class="areas-grid">
+
+        <div class="area-card">
+            <h3>Surrey</h3>
+        </div>
+
+        <div class="area-card">
+            <h3>Langley</h3> 
+        </div>
+
+        <div class="area-card">
+            <h3>Delta</h3>
+        </div>
+
+        <div class="area-card">
+            <h3>Burnaby</h3>
+        </div>
+		
+        <div class="area-card">
+            <h3>Port Moody</h3>
+        </div>
+		
+        <div class="area-card">
+            <h3>Pitt Meadows</h3>
+        </div>
+		
+        <div class="area-card">
+            <h3>Maple Ridge</h3>
+        </div>
+		
+        <div class="area-card">
+            <h3>Richmond</h3>
+        </div>
+
+        <div class="area-card">
+            <h3>Vancouver</h3>
+        </div>
+
+        <div class="area-card">
+            <h3>Coquitlam</h3>
+        </div>
+
+        <div class="area-card">
+            <h3>New Westminster</h3>
+        </div>
+
+    </div>
+
+</section>
+<section id="contact">
+  <h2>Request a Free Estimate</h2>
+  <p class="subtitle">Send us your query and we will contact you as soon as possible.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Contact Fortis</h3>
+      <p><b>Phone:</b> <a href="tel:+16041234567">604-123-4567</a></p>
+      <p><b>Email:</b> fortisplumbing@gmail.com</p>
+      <p><b>Service Area:</b> Surrey, Langley, Delta, Vancouver</p>
+      <p><b>Hours:</b> Open 24/7 for emergency service</p>
+    </div>
+
+    <form action="mailto:fortisplumbing@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="tel" name="Phone" placeholder="Phone Number" required>
+      <input type="email" name="Email" placeholder="Email Address">
+
+      <select name="Service">
+        <option value="">Select Service Needed</option>
+        <option>Plumbing Repair</option>
+        <option>Drain Cleaning</option>
+        <option>Heating Service</option>
+        <option>Water Heater</option>
+        <option>Emergency Plumbing</option>
+        <option>Other</option>
+      </select>
+
+      <textarea name="Message" rows="5" placeholder="Describe your plumbing issue..." required></textarea>
+
+      <button type="submit">Send Query</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Fortis Plumbing Heating & Drain Services. All rights reserved.</p>
+</footer>
+
+<a class="floating-call" href="tel:+16041234567">📞 Call Now</a>
+
+</body>
+</html>
